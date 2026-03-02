@@ -58,13 +58,11 @@ history.to_csv(history_file, index=False)
 
 print("Price history updated.")
 
-# -----------------------------------------------------------------------------
-# Email configuration (loaded from environment variables in a .env file)
-# -----------------------------------------------------------------------------
+
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # will read PROJECT_ROOT/.env if present
+load_dotenv()  
 
 SENDER = os.getenv("EMAIL_SENDER")
 PASSWORD = os.getenv("EMAIL_PASSWORD")
@@ -73,7 +71,6 @@ RECEIVER = os.getenv("EMAIL_RECEIVER")
 if alerts:
     from alert import send_email
 
-    # validate that we actually have credentials before trying to send
     if not all([SENDER, PASSWORD, RECEIVER]):
         print("⚠️  Missing email configuration. Please set EMAIL_SENDER,"
               " EMAIL_PASSWORD and EMAIL_RECEIVER in your environment.")
@@ -84,5 +81,5 @@ if alerts:
         except Exception as exc:
             print(f"Failed to send alerts: {exc}")
 else:
-    # for clarity, explicitly state when there is nothing to send
+    
     print("No alerts generated; nothing to email.")
