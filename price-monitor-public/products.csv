@@ -1,0 +1,3 @@
+product_name,url,threshold_percent
+Laptop A,https://webscraper.io/test-sites/e-commerce/static/product/49,5
+Laptop B,https://webscraper.io/test-sites/e-commerce/static/product/50,7
